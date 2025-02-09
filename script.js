@@ -42,25 +42,23 @@ function getHumanChoice() {
 // increment the score of the winner by 1
 
 
-//Summary of code below
-//create a function playRound to compare the user's choice to the computer's choice
-//Using an if-else statement to compare the human choice to each possible computer choice
-//Increase the score of the winner for that round
-//Move playRound into the declaration of the function playGame
-//playGame will call the function playRound after it's declared
-//Using a for loop, we can as many rounds as we want. 
-//Need to generate new choices for each loop
+
 
 
 function playGame() {
 let humanScore =  0;
 let computerScore = 0;
 let round = 0;
+        //Create a function playRound that takes values returned by both humanChoice() and computerChoice() as arguments
+        //Then create an if statement to compare the two choices and increment the score of the winner
+        //Compare the human's choice to each possible choice the computer can make and increment the score based on those results
+        //If the choices are the same, the result is the tie and score remains the same
+        //display a message to the console with the winner
         function playRound(humanChoice, computerChoice) {
             if (humanChoice === "rock") {
                 if (computerChoice === "rock") {
                     round++;
-                    console.log("Round " + round, "You both selected:",computerChoice, "Your Score: ", humanScore, "Computer score: ", computerScore);
+                    console.log("Round " + round, "You both selected",computerChoice, "Your Score: ", humanScore, "Computer score: ", computerScore);
                 } 
                 else if (computerChoice === "scissors") {
                     console.log("Rock beats scissors, you win!")
@@ -78,7 +76,7 @@ let round = 0;
             else if (humanChoice === "paper") {
                 if (computerChoice === "paper") {
                     round++;
-                    console.log("Round " + round, "You both selected:",computerChoice, "Your Score:", humanScore, " Computer score:", computerScore);    
+                    console.log("Round " + round, "You both selected",computerChoice, "Your Score:", humanScore, " Computer score:", computerScore);    
                 } 
                 else if (computerChoice === "rock") {
                     console.log("Paper beats rock, you win!");
@@ -96,7 +94,7 @@ let round = 0;
             else if (humanChoice === "scissors") {
                 if (computerChoice === "scissors") {
                     round++;
-                    console.log("Round " + round, "You both selected:",computerChoice, "Your Score:", humanScore, " Computer score:", computerScore);
+                    console.log("Round " + round, "You both selected",computerChoice, "Your Score:", humanScore, " Computer score:", computerScore);
                 } 
                 else if (computerChoice === "paper") {
                     console.log("Scissors beats paper, you win!")
@@ -114,12 +112,16 @@ let round = 0;
         }
         //Now that playRound is declared a for loop is needed to run through the game for 5 rounds
         //First we need a human and computer choice to use as arguments for the playRound function
+        //Declare two variables for each selection and initialize them with the return value of getHumanChoice() and getComputerChoice()
         //Added console.log to display the choices before each round of the game
+        //use the value of each variable as an argument for the playRound() function
+        //The for loop will start from i = 1 and will run for 5 rounds or until i = 5
+        //Make sure the functions return new values each loop to use as arguments
         //After 5 rounds we should have a score for both the computer and human which are stored in variables defined
         //above but within the scope of play game
         for (let i = 1; i <= 5; i++) {
-        humanSelection = getHumanChoice();
-        computerSelection = getComputerChoice();
+        let humanSelection = getHumanChoice();
+        let computerSelection = getComputerChoice();
         console.log("The computer selected: ", computerSelection);
         console.log("You Selected: ", humanSelection);
         playRound(humanSelection, computerSelection);
